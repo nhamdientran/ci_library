@@ -7,6 +7,9 @@
   </head>
   <body>
     <ul>
+            <li> <a href="<?php echo site_url('book/index'); ?>">Main page</a> </li>
       <li> <a href="<?php echo site_url('book/show_books'); ?>">Books</a> </li>
+      <li> <a href="<?php echo site_url('book/add_book_form'); ?>">Add a book</a> </li>
       <li> <a href="<?php echo site_url('borrower/show_borrowers'); ?>">Borrowers</a> </li>
     </ul>
+    <div class="container">
