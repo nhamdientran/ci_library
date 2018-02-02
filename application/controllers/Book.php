@@ -39,8 +39,39 @@ class Book extends CI_Controller {
     $this->load->view('menu/content',$data);
   }
 
+  public function delete_selected($delete_id){
+    $this->load->model('Book_model');
+    $data['book_id']=$delete_id;
+    $data['chosen_book']=$this->Book_model->get_chosen_book($delete_id);
+    $data['page']='book/delete_selected';
+    $this->load->view('menu/content',$data);
+  }
 
+  public function delete_book($book_id){
+    $this->load->model('Book_model');
+    $succes=$this->Book_model->delete_book($book_id);
+    if($succes){
+      $data['message']='The book has been deleted';
+    }
+    else {
+      $data['message']='There was an error, the book has been borrowed';
+    }
+    //$data['new_book']=$insert_data;
+    $data['page']='book/add_book_to_db';
+    $this->load->view('menu/content',$data);
+  }
 
+  public function edit_selected($edit_id){
+    $this->load->model('Book_model');
+    $data['book_id']=$edit_id;
+    $data['chosen_book']=$this->Book_model->get_chosen_book($edit_id);
+    $data['page']='book/edit_selected';
+    $this->load->view('menu/content',$data);
+  }
 
+public function save_edited(){
+  $test=$this->input->post();
+  print_r($test);
+}
 
 }

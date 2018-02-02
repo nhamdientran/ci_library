@@ -1,7 +1,7 @@
 <h2>Books</h2>
-<table border="1">
-  <tr>
-    <th>id</th><th>Name</th><th>Author</th><th>isbn</th>
+<table class="table table-hover table-bordered">
+  <tr class="table-info">
+    <th>id</th><th>Name</th><th>Author</th><th>isbn</th><th>Delete</th><th>Edit</th>
 <?php
 //print_r($books);
 foreach ($books as $row) {
@@ -10,6 +10,10 @@ foreach ($books as $row) {
   echo '<td>'.$row['book_name'].'</td>';
   echo '<td>'.$row['author'].'</td>';
   echo '<td>'.$row['isbn'].'</td>';
+  echo '<td> <a href="'.site_url('book/delete_selected/')
+  .$row['book_id'].'"><button class="btn btn-danger">Delete</button></a></td>';
+  echo '<td> <a href="'.site_url('book/edit_selected/')
+  .$row['book_id'].'"><button class="btn btn-primary">Edit</button></a></td>';
   echo '</tr>';
 }
  ?>
