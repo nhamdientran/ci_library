@@ -11,9 +11,9 @@ foreach ($books as $row) {
   echo '<td>'.$row['author'].'</td>';
   echo '<td>'.$row['isbn'].'</td>';
   echo '<td> <a href="'.site_url('book/delete_selected/')
-  .$row['book_id'].'"><button class="btn btn-danger">Delete</button></a></td>';
+  .$row['book_id'].'"><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a></td>';
   echo '<td> <a href="'.site_url('book/edit_selected/')
-  .$row['book_id'].'"><button class="btn btn-primary">Edit</button></a></td>';
+  .$row['book_id'].'"><button class="btn btn-primary"><span class="glyphicon glyphicon-edit"></button></a></td>';
   echo '</tr>';
 }
  ?>
