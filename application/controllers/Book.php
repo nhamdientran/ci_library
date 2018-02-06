@@ -2,6 +2,17 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Book extends CI_Controller {
+  function __construct()
+	{
+		parent::__construct();
+		if(isset($_SESSION['logged_in'])){
+      //we dont' do anything
+    }
+    else {
+      redirect('login/login_form');
+    }
+	}
+
   public function index(){
     $data['page']='book/index';
     $this->load->view('menu/content',$data);
@@ -70,8 +81,29 @@ class Book extends CI_Controller {
   }
 
 public function save_edited(){
-  $test=$this->input->post();
-  print_r($test);
+  $this->load->model('Book_model');
+  $update_id=$this->input->post('book_id');
+  $data_update=array(
+    'book_name'=>$this->input->post('book_name'),
+    'author'=>$this->input->post('author'),
+    'isbn'=>$this->input->post('isbn')
+  );
+  $success=$this->Book_model->save_edited($update_id,$data_update);
+  if($success){
+    $data['message']='You have updated book: '.$this->input->post('book_name');
+  }
+  else {
+    $data['message']='Something went wrong';
+  }
+  $data['page']='book/add_book_to_db';
+  $this->load->view('menu/content',$data);
 }
+
+
+
+
+
+
+
 
 }

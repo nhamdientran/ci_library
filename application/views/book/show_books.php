@@ -1,6 +1,6 @@
 <h2>Books</h2>
 <table class="table table-hover table-bordered">
-  <tr class="table-info">
+  <tr class="info">
     <th>id</th><th>Name</th><th>Author</th><th>isbn</th><th>Delete</th><th>Edit</th>
 <?php
 //print_r($books);

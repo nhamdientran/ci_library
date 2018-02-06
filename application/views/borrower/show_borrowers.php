@@ -1,6 +1,6 @@
 <h2>Borrowers</h2>
 <table class="table table-hover table-bordered">
-  <tr class="table-info">
+  <tr class="info">
     <th>ID</th><th>Firstname</th><th>Lastname</th><th>Phone</th>
     <th>Streetaddress</th><th>PostalCode</th>
   </tr>

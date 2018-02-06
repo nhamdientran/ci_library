@@ -30,4 +30,16 @@ public function delete_book($book_id){
   $test=$this->db->delete('book');
   return $test;
 }
+
+public function save_edited($update_id,$data_update){
+  $this->db->db_debug = false;
+  $this->db->where('book_id',$update_id);
+  $test=$this->db->update('book',$data_update);
+  return $test;
+}
+
+
+
+
+
 }
