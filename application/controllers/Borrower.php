@@ -25,6 +25,7 @@ class Borrower extends CI_Controller {
   }
   public function save_borrower(){
     // print_r($this->input->post());
+    $hashed_password = password_hash($this->input->post('password'),PASSWORD_DEFAULT);
     $this->load->model('Borrower_model');
     $insert_data=array(
       'borrower_id'=>$this->input->post('borrower_id'),
@@ -34,7 +35,7 @@ class Borrower extends CI_Controller {
       'streetAddress'=>$this->input->post('streetAddress'),
       'postalCode'=>$this->input->post('postalCode'),
       'user'=>$this->input->post('user'),
-      'password'=>$this->input->post('password')
+      'password'=>$hashed_password
     );
     $test=$this->Borrower_model->insert_borrower($insert_data);
     if($test){

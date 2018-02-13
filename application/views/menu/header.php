@@ -30,7 +30,7 @@
   </div>
   <div class="page">
     <?php
-    if(isset($_SESSION['logged_in'])){
+    if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true){
       echo '<a href="'.site_url('login/logout').'">Logout</a>';
     }
     else {
