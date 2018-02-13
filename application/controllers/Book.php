@@ -27,8 +27,17 @@ class Book extends CI_Controller {
 
 
   public function add_book_form(){
-    $data['page']='book/add_book_form';
-    $this->load->view('menu/content',$data);
+    if(isset($_SESSION['logged_in'])) {
+      if($_SESSION['admin'] == true) {
+        $data['page']='book/add_book_form';
+        $this->load->view('menu/content',$data);
+      }
+    else {
+      $data['message']='You dont have an access to this page';
+      $data['page']='book/add_book_to_db';
+      $this->load->view('menu/content',$data);
+    }
+    }
   }
   public function add_book_to_db(){
     $this->load->model('Book_model');

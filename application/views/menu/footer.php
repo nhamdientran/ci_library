@@ -1,3 +1,4 @@
+  </div>
 </div>
 <hr>
 The footer comes here
