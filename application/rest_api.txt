@@ -1,0 +1,8 @@
+REST API
+CRUD-operations
+C=create (insert)
+R=read (select)
+U=update
+D=delete
+
+https://www.codeofaninja.com/2017/02/create-simple-rest-api-in-php.html

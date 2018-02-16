@@ -1,4 +1,5 @@
 <h2>Borrow</h2>
+<?php $return_date = strtotime("21 day");?>
 <form class="" action="<?php echo site_url('borrow/add_borrow'); ?>" method="post">
   <label for="">Book ID</label><br>
   <select class="" name="book_id">
@@ -19,10 +20,10 @@
 </select>
 <br>
 <label for="">Borrow date</label><br>
-<input type="date" name="borrow_date" value="">
+<input type="date" name="borrow_date" value="<?php echo date("Y-m-d"); ?>">
 <br>
 <label for="">Return date</label><br>
-<input type="date" name="return_date" value="">
+<input type="date" name="return_date" value="<?php echo date('Y-m-d', $return_date); ?>">
 <br><br>
 <input class="btn btn-primary" type="submit" name="" value="Borrow">
 </form>
